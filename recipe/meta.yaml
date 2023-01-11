@@ -15,7 +15,7 @@ build:
     - gmail_oauth2=otter.plugins.builtin.gmail_notifications.bin.gmail_oauth2:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
