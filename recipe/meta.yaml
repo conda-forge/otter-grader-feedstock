@@ -37,7 +37,6 @@ requirements:
     - fica >=0.2.0
     - google-api-python-client
     - google-auth-oauthlib
-    - gspread
     - six
 
 test:
