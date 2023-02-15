@@ -1,5 +1,5 @@
 {% set name = "otter-grader" %}
-{% set version = "4.3.0" %}
+{% set version = "4.3.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/otter-grader-{{ version }}.tar.gz
-  sha256: 98153639f1e4dfe7c7c3f4c11d4fc9d94206ad73e150d803e963780a67dc9d94
+  sha256: 7159f65ea5b82a80bd7789bd4cba53d7dedf1a54ee88ee142dd4a8964e2ffa22
 
 build:
   entry_points:
