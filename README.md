@@ -1,11 +1,11 @@
-About otter-grader
-==================
+About otter-grader-feedstock
+============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/otter-grader-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/ucbds-infra/otter-grader
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/otter-grader-feedstock/blob/main/LICENSE.txt)
 
 Summary: Python and Jupyter Notebook autograder
 
