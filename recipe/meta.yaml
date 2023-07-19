@@ -1,5 +1,5 @@
 {% set name = "otter-grader" %}
-{% set version = "4.4.1" %}
+{% set version = "5.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/otter-grader-{{ version }}.tar.gz
-  sha256: fc8f699b6324d571f86bd267642906a412ad39d11764af1a080c89b983d48891
+  sha256: 3f9f7ec9e04b271a31fd7a13d464d67f10cd4db8dbd5f64dbe3e7f234e1bf03a
 
 build:
   entry_points:
@@ -38,6 +38,8 @@ requirements:
     - google-api-python-client
     - google-auth-oauthlib
     - six
+    - nbconvert-core
+    - astunparse
 
 test:
   imports:
