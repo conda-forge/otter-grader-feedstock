@@ -39,6 +39,7 @@ requirements:
     - google-auth-oauthlib
     - six
     - nbconvert-core
+    - astunparse
 
 test:
   imports:
