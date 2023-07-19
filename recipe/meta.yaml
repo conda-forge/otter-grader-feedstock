@@ -38,6 +38,7 @@ requirements:
     - google-api-python-client
     - google-auth-oauthlib
     - six
+    - nbconvert-core
 
 test:
   imports:
