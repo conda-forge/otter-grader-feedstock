@@ -40,6 +40,8 @@ requirements:
     - six
     - nbconvert-core
     - astunparse
+    - ipylab
+    - ipywidgets
 
 test:
   imports:
