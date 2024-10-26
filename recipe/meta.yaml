@@ -19,18 +19,18 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python >=3.9
     - pip
     - poetry
   run:
-    - python >=3.8
+    - python >=3.9
     - ipython
     - dill
     - jinja2
     - nbformat
     - pandas
     - pyyaml
-    - python-on-whales
+    - python-on-whales >=0.72.0,<0.73.0
     - requests
     - wrapt
     - jupytext
