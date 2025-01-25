@@ -1,5 +1,5 @@
 {% set name = "otter-grader" %}
-{% set version = "6.0.4" %}
+{% set version = "6.0.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
-  sha256: 7dab2ad4876e229209bda333996c631b09a7cbc72246a90f97c6dda3148fd127
+  sha256: 3b1162bf58ac69117cb47ae44079a80b1f175dcd646a1f81cb556bef0cbaf861
 
 build:
   entry_points:
@@ -15,7 +15,7 @@ build:
     - gmail_oauth2=otter.plugins.builtin.gmail_notifications.bin.gmail_oauth2:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
