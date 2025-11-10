@@ -39,10 +39,11 @@ requirements:
     - google-api-python-client
     - google-auth-oauthlib
     - six
-    - nbconvert-core
     - astunparse
     - ipylab
     - ipywidgets
+  run_constrained:
+    - nbconvert-core >=6.0.0
 
 test:
   imports:
