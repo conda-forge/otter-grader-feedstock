@@ -55,6 +55,7 @@ test:
   requires:
     - pip
     - python {{ python_min }}
+    - nbconvert-core
 
 about:
   home: https://github.com/ucbds-infra/otter-grader
