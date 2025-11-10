@@ -10,11 +10,7 @@ source:
   sha256: 23f67966cb251c0fcdaeeb95a242bdc9fd76cf71c9cdb7e75ba6da763cd97dd7
 
 build:
-  entry_points:
-    - otter=otter.cli:cli
-    - gmail_oauth2=otter.plugins.builtin.gmail_notifications.bin.gmail_oauth2:main
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
   number: 1
 
 requirements:
@@ -24,38 +20,69 @@ requirements:
     - poetry
   run:
     - python >={{ python_min }}
-    - ipython
-    - dill
-    - jinja2
-    - nbformat
-    - pandas
-    - pyyaml
-    - python-on-whales
-    - requests
-    - wrapt
-    - jupytext
-    - click
-    - fica >=0.2.0
-    - google-api-python-client
-    - google-auth-oauthlib
-    - six
-    - astunparse
-    - ipylab
-    - ipywidgets
-  run_constrained:
-    - nbconvert-core >=6.0.0
 
-test:
-  imports:
-    - otter
-  commands:
-    - pip check
-    - otter --help
-    - gmail_oauth2 --help
-  requires:
-    - pip
-    - python {{ python_min }}
-    - nbconvert-core
+outputs:
+  - name: {{ name|lower }}-base
+    version: {{ version }}
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: {{ PYTHON }} -m pip install . -vv
+      entry_points:
+        - otter=otter.cli:cli
+        - gmail_oauth2=otter.plugins.builtin.gmail_notifications.bin.gmail_oauth2:main
+    requirements:
+      host:
+        - python {{ python_min }}
+        - pip
+        - poetry
+      run:
+        - python >={{ python_min }}
+        - ipython
+        - dill
+        - jinja2
+        - nbformat
+        - pandas
+        - pyyaml
+        - python-on-whales
+        - requests
+        - wrapt
+        - jupytext
+        - click
+        - fica >=0.2.0
+        - google-api-python-client
+        - google-auth-oauthlib
+        - six
+        - astunparse
+        - ipylab
+        - ipywidgets
+      test:
+        imports:
+          - otter
+        commands:
+          - pip check
+          - otter --help
+          - gmail_oauth2 --help
+        requires:
+          - pip
+          - python {{ python_min }}
+  - name: {{ name|lower }}
+    version: {{ version }}
+    build:
+      number: {{ build_number }}
+      noarch: python
+      script: {{ PYTHON }} -m pip install . -vv
+      entry_points:
+        - otter=otter.cli:cli
+        - gmail_oauth2=otter.plugins.builtin.gmail_notifications.bin.gmail_oauth2:main
+    requirements:
+      host:
+        - python {{ python_min }}
+        - pip
+        - poetry
+      run:
+        - {{ pin_subpackage("otter-grader-base", exact=True) }}
+        - nbconvert-core >=6.0.0
 
 about:
   home: https://github.com/ucbds-infra/otter-grader
