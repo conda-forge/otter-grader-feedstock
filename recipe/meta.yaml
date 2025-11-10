@@ -1,5 +1,6 @@
 {% set name = "otter-grader" %}
 {% set version = "6.1.6" %}
+{% set build_number = 1 %}
 
 package:
   name: {{ name|lower }}
@@ -11,7 +12,7 @@ source:
 
 build:
   noarch: python
-  number: 1
+  number: {{ build_number }}
 
 requirements:
   host:
