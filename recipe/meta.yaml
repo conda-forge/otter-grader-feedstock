@@ -76,16 +76,16 @@ outputs:
       run:
         - {{ pin_subpackage("otter-grader-base", exact=True) }}
         - nbconvert-core >=6.0.0
-     test:
-        imports:
-          - otter
-        commands:
-          - pip check
-          - otter --help
-          - gmail_oauth2 --help
-        requires:
-          - pip
-          - python {{ python_min }}
+    test:
+      imports:
+        - otter
+      commands:
+        - pip check
+        - otter --help
+        - gmail_oauth2 --help
+      requires:
+        - pip
+        - python {{ python_min }}
 
 about:
   home: https://github.com/ucbds-infra/otter-grader
