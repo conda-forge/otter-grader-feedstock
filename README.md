@@ -28,6 +28,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-otter--grader-green.svg)](https://anaconda.org/conda-forge/otter-grader) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/otter-grader.svg)](https://anaconda.org/conda-forge/otter-grader) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/otter-grader.svg)](https://anaconda.org/conda-forge/otter-grader) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/otter-grader.svg)](https://anaconda.org/conda-forge/otter-grader) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-otter--grader--base-green.svg)](https://anaconda.org/conda-forge/otter-grader-base) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/otter-grader-base.svg)](https://anaconda.org/conda-forge/otter-grader-base) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/otter-grader-base.svg)](https://anaconda.org/conda-forge/otter-grader-base) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/otter-grader-base.svg)](https://anaconda.org/conda-forge/otter-grader-base) |
 
 Installing otter-grader
 =======================
@@ -39,16 +40,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `otter-grader` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `otter-grader, otter-grader-base` can be installed with `conda`:
 
 ```
-conda install otter-grader
+conda install otter-grader otter-grader-base
 ```
 
 or with `mamba`:
 
 ```
-mamba install otter-grader
+mamba install otter-grader otter-grader-base
 ```
 
 It is possible to list all of the versions of `otter-grader` available on your platform with `conda`:
