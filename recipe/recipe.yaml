@@ -4,8 +4,8 @@ context:
   name: otter-grader
   version: 6.1.6
 
-package:
-  name: ${{ name|lower }}
+recipe:
+  name: ${{ name|lower }}-split
   version: ${{ version }}
 
 source:
@@ -14,52 +14,68 @@ source:
 
 build:
   number: 1
-  noarch: python
-  script: ${{ PYTHON }} -m pip install --no-deps --no-build-isolation -vv .
-  python:
-    entry_points:
-      - otter=otter.cli:cli
-      - gmail_oauth2=otter.plugins.builtin.gmail_notifications.bin.gmail_oauth2:main
 
-requirements:
-  host:
-    - python ==${{ python_min }}
-    - pip
-    - poetry
-  run:
-    - python >=${{ python_min }}
-    - ipython
-    - dill
-    - jinja2
-    - nbformat
-    - pandas
-    - pyyaml
-    - python-on-whales
-    - requests
-    - wrapt<2.0.0,>=1.16.0
-    - jupytext
-    - click
-    - fica >=0.2.0
-    - google-api-python-client
-    - google-auth-oauthlib
-    - six
-    - nbconvert-core
-    - astunparse
-    - ipylab
-    - ipywidgets
-
-tests:
-  - python:
-      imports:
-        - otter
-  - requirements:
-      run:
+outputs:
+  - package:
+      name: ${{ name|lower }}-base
+    build:
+      noarch: python
+      script: ${{ PYTHON }} -m pip install --no-deps --no-build-isolation -vv .
+      python:
+        entry_points:
+          - otter=otter.cli:cli
+          - gmail_oauth2=otter.plugins.builtin.gmail_notifications.bin.gmail_oauth2:main
+    requirements:
+      host:
+        - python ==${{ python_min }}
         - pip
-        - python ${{ python_min }}
-    script:
-      - pip check
-      - otter --help
-      - gmail_oauth2 --help
+        - poetry
+      run:
+        - python >=${{ python_min }}
+        - ipython
+        - dill
+        - jinja2
+        - nbformat
+        - pandas
+        - pyyaml
+        - python-on-whales
+        - requests
+        - wrapt<2.0.0,>=1.16.0
+        - jupytext
+        - click
+        - fica >=0.2.0
+        - google-api-python-client
+        - google-auth-oauthlib
+        - six
+        - nbconvert-core
+        - astunparse
+        - ipylab
+        - ipywidgets
+    tests:
+      - python:
+          imports:
+            - otter
+          pip_check: false
+      - requirements:
+          run:
+            - python ${{ python_min }}
+        script:
+          - otter --help
+          - gmail_oauth2 --help
+
+  - package:
+      name: ${{ name|lower }}
+    build:
+      noarch: python
+    requirements:
+      run:
+        - ${{ pin_subpackage(name|lower ~ '-base', exact=True) }}
+        - nbconvert-core
+    tests:
+      - python:
+          imports:
+            - otter
+          pip_check: true
 
 about:
   summary: Python and Jupyter Notebook autograder
@@ -70,4 +86,3 @@ about:
 extra:
   recipe-maintainers:
     - chrispyles
-
