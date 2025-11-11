@@ -13,7 +13,7 @@ source:
   sha256: 23f67966cb251c0fcdaeeb95a242bdc9fd76cf71c9cdb7e75ba6da763cd97dd7
 
 build:
-  number: 1
+  number: 2
 
 outputs:
   - package:
@@ -47,7 +47,6 @@ outputs:
         - google-api-python-client
         - google-auth-oauthlib
         - six
-        - nbconvert-core
         - astunparse
         - ipylab
         - ipywidgets
