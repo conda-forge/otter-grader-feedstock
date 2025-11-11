@@ -47,7 +47,6 @@ outputs:
         - google-api-python-client
         - google-auth-oauthlib
         - six
-        - nbconvert-core
         - astunparse
         - ipylab
         - ipywidgets
