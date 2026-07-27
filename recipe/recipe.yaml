@@ -50,6 +50,7 @@ outputs:
         - astunparse
         - ipylab
         - ipywidgets
+        - python-frontmatter
     tests:
       - python:
           python_version: ${{ python_min }}.*
